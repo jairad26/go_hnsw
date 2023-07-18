@@ -1,4 +1,4 @@
-module github.com/jairad26/go_hnsw
+module github.com/jairad26/vector_indexer
 
 go 1.20
 
