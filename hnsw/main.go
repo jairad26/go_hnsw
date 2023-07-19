@@ -19,14 +19,14 @@ func main() {
 		hnsw.index = append(hnsw.index, &graph)
 	}
 
-	hnsw.insert([]float64{0.1, 0.1, 0.1})
-	hnsw.insert([]float64{0.2, 0.2, 0.2})
-	hnsw.insert([]float64{0.3, 0.3, 0.3})
-	hnsw.insert([]float64{0.4, 0.4, 0.4})
+	hnsw.Insert([]float64{0.1, 0.1, 0.1})
+	hnsw.Insert([]float64{0.2, 0.2, 0.2})
+	hnsw.Insert([]float64{0.3, 0.3, 0.3})
+	hnsw.Insert([]float64{0.4, 0.4, 0.4})
 
 	query := []float64{0.2, 0.3, 0.2}
 
-	nn_vals := search(hnsw.index, query, hnsw.efConstruction)
+	nn_vals := Search(hnsw.index, query, hnsw.efConstruction)
 	// fmt.Println(nn_vals[0].V2)
 
 	fmt.Println("Closest vector:")

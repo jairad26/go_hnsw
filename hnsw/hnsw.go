@@ -16,9 +16,9 @@ type HNSW struct {
 	max_neighbors  int
 }
 
-func (hnsw *HNSW) create(vectors [][]float64) {
+func (hnsw *HNSW) Create(vectors [][]float64) {
 	for _, vector := range vectors {
-		hnsw.insert(vector)
+		hnsw.Insert(vector)
 	}
 }
 
@@ -38,7 +38,7 @@ func (hnsw *HNSW) get_insert_layer() int {
 	// return min(level, hnsw.max_levels)
 }
 
-func (hnsw *HNSW) insert(vec []float64) []*Graph {
+func (hnsw *HNSW) Insert(vec []float64) []*Graph {
 	if len(hnsw.index[0].vertices) == 0 {
 		next_layer := -1
 		for i := len(hnsw.index) - 1; i >= 0; i-- {
@@ -131,7 +131,7 @@ func search_layer(graph *Graph, entry int, query []float64, expected_neighbors i
 	return nns
 }
 
-func search(index []*Graph, query []float64, expected_neighbors int) []tuple.T2[float64, int] {
+func Search(index []*Graph, query []float64, expected_neighbors int) []tuple.T2[float64, int] {
 	if len(index[0].vertices) > 0 {
 		best_v := 0
 		for _, graph := range index {
