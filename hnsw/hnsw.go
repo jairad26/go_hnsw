@@ -33,9 +33,9 @@ func HNSW_init(max_levels int, mult_factor float64, efConstruction int, max_neig
 	return &hnsw
 }
 
-func (hnsw *HNSW) Create(vectors [][]float64) {
-	for _, vector := range vectors {
-		hnsw.Insert(vector)
+func (hnsw *HNSW) Create(vectors [][]float64, uuids []uint64) {
+	for i, _ := range vectors {
+		hnsw.Insert(vectors[i], uuids[i])
 	}
 }
 
@@ -55,7 +55,7 @@ func (hnsw *HNSW) get_insert_layer() int {
 	// return min(level, hnsw.max_levels)
 }
 
-func (hnsw *HNSW) Insert(vec []float64) []*Graph {
+func (hnsw *HNSW) Insert(vec []float64, uuid uint64) []*Graph {
 	if len(hnsw.Index[0].Vertices) == 0 {
 		next_layer := -1
 		for i := len(hnsw.Index) - 1; i >= 0; i-- {

@@ -7,10 +7,10 @@ import (
 func main() {
 	hnsw := HNSW_init(5, 0.62, 10, 3)
 
-	hnsw.Insert([]float64{0.1, 0.1, 0.1})
-	hnsw.Insert([]float64{0.2, 0.2, 0.2})
-	hnsw.Insert([]float64{0.3, 0.3, 0.3})
-	hnsw.Insert([]float64{0.4, 0.4, 0.4})
+	hnsw.Insert([]float64{0.1, 0.1, 0.1}, 0)
+	hnsw.Insert([]float64{0.2, 0.2, 0.2}, 1)
+	hnsw.Insert([]float64{0.3, 0.3, 0.3}, 2)
+	hnsw.Insert([]float64{0.4, 0.4, 0.4}, 3)
 
 	query := []float64{0.2, 0.3, 0.2}
 
