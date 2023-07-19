@@ -16,6 +16,22 @@ func norm(v []float64) float64 {
 	return math.Sqrt(sum)
 }
 
+func dot_product(a []float64, b []float64) float64 {
+	var dot_product float64
+	for i := 0; i < max(len(a), len(b)); i++ {
+		dot_product += a[i] * b[i]
+	}
+	return dot_product
+}
+
+func euclidian_distance(a []float64, b []float64) float64 {
+	return norm(sub_slices(a, b))
+}
+
+func cosine_similarity(a []float64, b []float64) float64 {
+	return dot_product(a, b) / (norm(a) * norm(b))
+}
+
 func max(a int, b int) int {
 	if a < b {
 		return b

@@ -1,14 +1,14 @@
 package hnsw
 
 type Node struct {
-	vector     []float64
+	Vector     []float64
 	edges      []*Node
-	uuid       int
+	Uuid       int
 	next_layer int
 }
 
 func (n *Node) add_value(vec []float64) {
-	n.vector = vec
+	n.Vector = vec
 }
 
 func (n *Node) add_edge(node *Node) {
@@ -16,5 +16,5 @@ func (n *Node) add_edge(node *Node) {
 }
 
 type Graph struct {
-	vertices map[int]*Node
+	Vertices map[int]*Node
 }

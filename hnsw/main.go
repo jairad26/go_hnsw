@@ -14,11 +14,11 @@ func main() {
 
 	query := []float64{0.2, 0.3, 0.2}
 
-	nn_vals := Search(hnsw.index, query, hnsw.efConstruction)
+	nn_vals := Search(hnsw.Index, query, hnsw.efConstruction)
 	// fmt.Println(nn_vals[0].V2)
 
 	fmt.Println("Closest vector:")
-	fmt.Println(hnsw.index[len(hnsw.index)-1].vertices[nn_vals[0].V2].vector)
+	fmt.Println(hnsw.Index[len(hnsw.Index)-1].Vertices[nn_vals[0].V2].Vector)
 
 	// vec_arr, question_arr := weaviate_run()
 	// hnsw.create(vec_arr)
