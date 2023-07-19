@@ -3,7 +3,7 @@ package hnsw
 type Node struct {
 	Vector     []float64
 	edges      []*Node
-	Uuid       int
+	Uuid       uint64
 	next_layer int
 }
 
