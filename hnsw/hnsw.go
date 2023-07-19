@@ -16,6 +16,23 @@ type HNSW struct {
 	max_neighbors  int
 }
 
+func HNSW_init(max_levels int, mult_factor float64, efConstruction int, max_neighbors int) *HNSW {
+	hnsw := HNSW{
+		index:          []*Graph{},
+		max_levels:     max_levels,
+		mult_factor:    mult_factor,
+		efConstruction: efConstruction,
+		max_neighbors:  max_neighbors,
+	}
+	for i := 0; i < hnsw.max_levels; i++ {
+		graph := Graph{
+			vertices: map[int]*Node{},
+		}
+		hnsw.index = append(hnsw.index, &graph)
+	}
+	return &hnsw
+}
+
 func (hnsw *HNSW) Create(vectors [][]float64) {
 	for _, vector := range vectors {
 		hnsw.Insert(vector)

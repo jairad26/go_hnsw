@@ -5,19 +5,7 @@ import (
 )
 
 func main() {
-	hnsw := HNSW{
-		index:          []*Graph{},
-		max_levels:     5,
-		mult_factor:    0.62,
-		efConstruction: 10,
-		max_neighbors:  3,
-	}
-	for i := 0; i < hnsw.max_levels; i++ {
-		graph := Graph{
-			vertices: map[int]*Node{},
-		}
-		hnsw.index = append(hnsw.index, &graph)
-	}
+	hnsw := HNSW_init(5, 0.62, 10, 3)
 
 	hnsw.Insert([]float64{0.1, 0.1, 0.1})
 	hnsw.Insert([]float64{0.2, 0.2, 0.2})
